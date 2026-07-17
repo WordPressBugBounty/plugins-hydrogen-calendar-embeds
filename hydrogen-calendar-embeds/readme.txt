@@ -4,9 +4,9 @@ Contributors: LBell
 Donate link: https://github.com/sponsors/lbell
 Tags: calendar, ics, embed, google-calendar, events
 Requires at least: 5.8
-Tested up to: 6.9
+Tested up to: 7.0.2
 Requires PHP: 7.4
-Stable tag: 3.0.1
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,7 @@ Nothing is hidden behind a "pro" upgrade. All features are free.
 Works with any public ICS/iCal feed:
   - Google Calendar
   - iCloud
+  - Nextcloud Calendar
   - Outlook
   - Airbnb
   - **Pretty much anything that can output an ICS feed**
@@ -64,6 +65,14 @@ Where the options are:
 
 `ics="https://example.com/calendar.ics"`
 Public ICS/iCal feed URL(s). Works with any standard ICS feed: Google Calendar, iCloud, Outlook, Nextcloud, Teamup, corporate Exchange servers, and more. Multiple ICS feeds can be comma-separated. The plugin fetches the ICS data server-side to avoid CORS issues.
+
+Examples:
+
+Google Calendar: `[hydrogen_calendar_embeds ics="https://calendar.google.com/calendar/ical/YOUR_ID/public/basic.ics"]`
+iCloud: `[hydrogen_calendar_embeds ics="https://p123-caldav.icloud.com/published/2/YOUR_ID"]`
+Nextcloud Calendar: `[hydrogen_calendar_embeds ics="https://example.com/remote.php/dav/public-calendars/YOUR_ID?export"]`
+Outlook: `[hydrogen_calendar_embeds ics="https://outlook.live.com/owa/calendar/YOUR_ID/calendar.ics"]`
+Any ICS: `[hydrogen_calendar_embeds ics="https://example.com/events.ics"]`
 
 `cal_ids="identifier,identifier"`
 Optional custom CSS identifiers for each calendar. Allows using meaningful names instead of numeric indexes for styling. Example: `cal_ids="soccer,baseball"` generates classes like `.hycal-calendar-soccer` and `.hycal-calendar-baseball`. Identifiers should be lowercase alphanumeric with hyphens.
@@ -173,6 +182,13 @@ Contact me for requests for additional functionality, and let's see what we can 
 4. Block Editor - It's that simple
 
 == Changelog ==
+= 3.0.3 =
+* Fixed potential issue with ICS feed fetching on some servers
+* Added better error message for ICS feed fetching issues
+
+= 3.0.2 =
+* Fixed ICS feed cache
+
 = 3.0.1 =
 * Fixed issue with URL encoding in ICS feed proxy URL.
 
